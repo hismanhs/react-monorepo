@@ -9,9 +9,6 @@
       "path": "../analyticsApi"
     },
     {
-      "path": "../../shared"
-    },
-    {
       "path": "./tsconfig.app.json"
     },
     {
