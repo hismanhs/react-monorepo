@@ -16,6 +16,11 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["development"]
+    "customConditions": ["development"],
+    "paths": {
+      "analyticsApi/Module": ["apps/analyticsApi/src/remote-entry.ts"],
+      "referenceData/Module": ["apps/referenceData/src/remote-entry.ts"]
+    },
+    "baseUrl": "."
   }
 }

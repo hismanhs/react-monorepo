@@ -1,10 +1,5 @@
 {
-  "name": "graphite-e2e",
+  "name": "@react-monorepo/graphite-e2e",
   "version": "0.0.1",
-  "private": true,
-  "nx": {
-    "implicitDependencies": [
-      "graphite"
-    ]
-  }
+  "private": true
 }

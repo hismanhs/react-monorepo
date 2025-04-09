@@ -3,6 +3,15 @@
   "include": [],
   "references": [
     {
+      "path": "../referenceData"
+    },
+    {
+      "path": "../analyticsApi"
+    },
+    {
+      "path": "../../shared"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {
