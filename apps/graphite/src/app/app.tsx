@@ -18,6 +18,9 @@ export function App() {
       ])
     );
   };
+  const handleClear = () => {
+    localStorage.clear();
+  };
   return (
     <React.Suspense fallback={null}>
       <ul>
@@ -34,6 +37,8 @@ export function App() {
       {JSON.stringify(posts)}
       {loading}
       <button onClick={handleAdd}>Add</button>
+      <button onClick={handleClear}>Clear</button>
+
       <Routes>
         <Route
           path="/"
