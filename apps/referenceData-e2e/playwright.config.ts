@@ -44,7 +44,16 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
+    {
+      name: 'e2e tests',
+      use: {
+        // This will record videos for all tests in this project
+        video: 'on-first-retry', // Options: 'on', 'on-first-retry', 'off', 'retain-on-failure'
+        headless: false, // You can disable headless mode to visually see the tests if you want
+        screenshot: 'only-on-failure', // Screenshot on failure
+        trace: 'retain-on-failure', // Optionally retain traces of failed tests
+      },
+    },
     // Uncomment for mobile browsers support
     /* {
       name: 'Mobile Chrome',

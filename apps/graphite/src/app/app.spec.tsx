@@ -1,27 +1,28 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { test, expect } from '@playwright/test';
 
-import App from './app';
+test.describe('App navigation', () => {
+  test('should navigate through pages', async ({ page }) => {
+    // Go to the home page
+    await page.goto('http://localhost:4200');
 
-describe('App', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    // Assert that the home page is loaded
+    const homePageContent = await page.locator('h1');
+    await expect(homePageContent).toHaveText(
+      'Welcome to @react-monorepo/graphite'
     );
-    expect(baseElement).toBeTruthy();
-  });
 
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
-    expect(
-      getAllByText(new RegExp('Welcome @react-monorepo/graphite', 'gi'))
-        .length > 0
-    ).toBeTruthy();
+    // Navigate to AnalyticsApi page
+    await page.click('text=AnalyticsApi');
+
+    // Wait for the AnalyticsApi component to load (ensure it's rendered correctly)
+    const analyticsApiContent = await page.locator('h1');
+    await expect(analyticsApiContent).toHaveText('Analytics API Page'); // Modify based on your actual component's heading text
+
+    // Navigate to ReferenceData page
+    await page.click('text=ReferenceData');
+
+    // Wait for the ReferenceData component to load (ensure it's rendered correctly)
+    const referenceDataContent = await page.locator('h1');
+    await expect(referenceDataContent).toHaveText('Reference Data Page'); // Modify based on your actual component's heading text
   });
 });
